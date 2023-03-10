@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Card } from 'primereact/card';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { Password } from 'primereact/password';
-import { checkInputs } from './functions/checkInputs';
+import { validateForm } from './functions/checkInputs';
+import { Messages } from 'primereact/messages';
 
 const LoginPageComponent = () => {
     
     const [pass, setPass] = useState('');
     const [email, setEmail] = useState('');
+    const msg = useRef(null);
 
     function testPass(){
-        checkInputs(email, pass)
+        validateForm(email, pass, msg)
     }
     
     return (
@@ -28,6 +30,7 @@ const LoginPageComponent = () => {
                     </span>
                     <Password value={pass} onChange={(e) => setPass(e.target.value)} id='password' required/>
                 </div>
+                <Messages ref={msg} />
                 <Button label="Submit" icon="pi pi-check" iconPos="right" className='m-2' onClick={testPass}/>
             </Card>
     );
