@@ -17,7 +17,7 @@ const LoginPageComponent = () => {
     }
     
     return (
-            <Card className='w-4 m-auto'>
+            <Card className='w-26rem m-auto'>
                 <div className="p-inputgroup m-2">
                     <span className="p-inputgroup-addon">
                         <i className="pi pi-at"></i>
