@@ -17,7 +17,7 @@ const LoginPageComponent = () => {
     }
     
     return (
-            <Card>
+            <Card className='w-4 m-auto'>
                 <div className="p-inputgroup m-2">
                     <span className="p-inputgroup-addon">
                         <i className="pi pi-at"></i>
@@ -30,7 +30,7 @@ const LoginPageComponent = () => {
                     </span>
                     <Password value={pass} onChange={(e) => setPass(e.target.value)} id='password' required/>
                 </div>
-                <Messages ref={msg} />
+                <Messages ref={msg}/>
                 <Button label="Submit" icon="pi pi-check" iconPos="right" className='m-2' onClick={testInfo}/>
             </Card>
     );
