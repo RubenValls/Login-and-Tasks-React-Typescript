@@ -7,27 +7,30 @@ import { Password } from 'primereact/password';
 const LoginPageComponent = () => {
     
     const [pass, setPass] = useState('');
+    const [email, setEmail] = useState('');
 
     function testPass(){
-        window.alert(`Your password is: ${pass}`)
+        console.log(`Your username is: ${email}, and your password is: ${pass}`)
     }
     
     return (
-        <Card>
-            <div className="p-inputgroup m-2">
-                <span className="p-inputgroup-addon">
-                    <i className="pi pi-user"></i>
-                </span>
-                <InputText placeholder="Username" id='username'/>
-            </div>
-            <div className="p-inputgroup m-2">
-                <span className="p-inputgroup-addon">
-                    <i className="pi pi-lock"></i>
-                </span>
-                <Password value={pass} onChange={(e) => setPass(e.target.value)} id='password'/>
-            </div>
-            <Button label="Submit" icon="pi pi-check" iconPos="right" className='m-2' onClick={testPass}/>
-        </Card>
+        <form>
+            <Card>
+                <div className="p-inputgroup m-2">
+                    <span className="p-inputgroup-addon">
+                        <i className="pi pi-user"></i>
+                    </span>
+                    <InputText placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} id='email' required/>
+                </div>
+                <div className="p-inputgroup m-2">
+                    <span className="p-inputgroup-addon">
+                        <i className="pi pi-lock"></i>
+                    </span>
+                    <Password value={pass} onChange={(e) => setPass(e.target.value)} id='password' required/>
+                </div>
+                <Button label="Submit" icon="pi pi-check" iconPos="right" className='m-2' onSubmit={testPass}/>
+            </Card>
+        </form>
     );
 }
 
