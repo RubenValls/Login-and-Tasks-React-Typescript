@@ -4,6 +4,7 @@ export function validateForm(email, pass, msg){
     const validateEmailRegex = /^\S+@\S+\.\S+$/
 
     if(validateEmailRegex.test(email)){
+        msg.current.clear()
         msg.current.show([
             {sticky: true, severity: 'success', summary: '', detail: 'Correct Log in', closable: false}
         ]);
