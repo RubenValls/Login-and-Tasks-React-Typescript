@@ -12,7 +12,7 @@ const LoginPageComponent = () => {
     const [email, setEmail] = useState('');
     const msg = useRef(null);
 
-    function testPass(){
+    function testInfo(){
         validateForm(email, pass, msg)
     }
     
@@ -31,7 +31,7 @@ const LoginPageComponent = () => {
                     <Password value={pass} onChange={(e) => setPass(e.target.value)} id='password' required/>
                 </div>
                 <Messages ref={msg} />
-                <Button label="Submit" icon="pi pi-check" iconPos="right" className='m-2' onClick={testPass}/>
+                <Button label="Submit" icon="pi pi-check" iconPos="right" className='m-2' onClick={testInfo}/>
             </Card>
     );
 }
