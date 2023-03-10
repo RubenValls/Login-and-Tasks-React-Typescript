@@ -33,7 +33,7 @@ const LoginPageComponent = () => {
                     <Password value={pass} onChange={(e) => setPass(e.target.value)} id='password' required/>
                 </div>
                 <Messages ref={msg}/>
-                <Button label="Log in" icon="pi pi-check" iconPos="right" className='m-2' onClick={testInfo} severity="help" size="sm" rounded outlined/>
+                <Button label="Log in" icon="pi pi-check" iconPos="right" className='m-2' onClick={testInfo} severity="help" size="sm" rounded outlined></Button>
             </Card>
     );
 }
