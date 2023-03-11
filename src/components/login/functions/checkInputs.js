@@ -16,7 +16,7 @@ export function validateForm(email, pass, msg){
     }else{
         if(!errorShow){
             msg.current.show([
-                { severity: 'error', summary: '', detail: 'Test: eve.holt@reqres.in : cityslicka', sticky: true, closable: false }
+                { severity: 'error', summary: '', detail: 'Test with eve.holt@reqres.in', sticky: true, closable: false }
             ]);
             errorShow = true;
         }
@@ -39,7 +39,7 @@ function axiosRequest(loginInfo, msg){
     })
     .catch(function (error) {
         msg.current.show([
-            { severity: 'error', summary: '', detail: 'Test with: eve.holt@reqres.in : cityslicka', sticky: true, closable: false }
+            { severity: 'error', summary: '', detail: 'Test with eve.holt@reqres.in', sticky: true, closable: false }
         ]);
     });
 }
