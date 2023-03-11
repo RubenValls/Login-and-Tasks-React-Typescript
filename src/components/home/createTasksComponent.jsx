@@ -19,8 +19,8 @@ const CreateTasksComponent = (props) => {
     }
     
     return (
-        <div className="card flex justify-content-center">
-            <div className="flex flex-column gap-2">
+        <div className="card flex justify-content-center max-w-screen">
+            <div className="flex flex-column gap-2 max-w-screen">
                 <label htmlFor="username">Task Name:</label>
                 <InputText id="username" aria-describedby="username-help" value={name} onChange={(e) => setName(e.target.value)} />
                 <InputTextarea autoResize placeholder="Task Description" value={description} rows={5} cols={50} onChange={(e) => setDescription(e.target.value)} />
