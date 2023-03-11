@@ -5,7 +5,7 @@ import { RadioButton } from 'primereact/radiobutton';
 import { Button } from 'primereact/button';
 import { Messages } from 'primereact/messages';
 
-const CreateTasksComponent = () => {
+const CreateTasksComponent = (props) => {
     
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
@@ -15,9 +15,22 @@ const CreateTasksComponent = () => {
     function checkTask(){
         taskMsg.current.clear()
         if (name && description && priority){
-            taskMsg.current.show([
-                {sticky: true, severity: 'success', summary: '', detail: `${name} created`}
+            if(props.data.find((task) => task.task === name)){
+                taskMsg.current.show([
+                    { severity: 'error', summary: '', detail: 'This task already exists'}
                 ]);
+            }else{
+                taskMsg.current.show([
+                    {sticky: true, severity: 'success', summary: '', detail: `${name} created`}
+                    ]);
+                const task = {
+                    "task": name,
+                    "description": description,
+                    "priority": priority,
+                    "situation" : "task"
+                }
+                props.data.push(task);
+            }
         }else{
             taskMsg.current.show([
                 { severity: 'error', summary: '', detail: 'Please, fill all the info'}

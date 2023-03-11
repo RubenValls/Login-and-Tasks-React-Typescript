@@ -12,11 +12,13 @@ const HomeComponent = () => {
             "task": "taskname",
             "description": "description",
             "priority": 1,
+            "situation" : "task"
         },
         {
             "task": "taskname2",
             "description": "description2",
             "priority": 2,
+            "situation" : "finished"
         }
     ]
     
@@ -24,7 +26,7 @@ const HomeComponent = () => {
         <div className = 'w-full h-screen'>
             <TabView>
                 <TabPanel header="Create a new task">
-                    <CreateTasksComponent/>
+                    <CreateTasksComponent data = {data}/>
                 </TabPanel>
                 <TabPanel header="Tasks">
                     <PendingTasksComponent data = {data}/>
