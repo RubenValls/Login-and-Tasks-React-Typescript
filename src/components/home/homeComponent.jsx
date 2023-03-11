@@ -7,20 +7,7 @@ import CreateTasksComponent from './createTasksComponent';
 
 const HomeComponent = () => {
     
-    const data = [
-        {
-            "task": "taskname",
-            "description": "description",
-            "priority": 1,
-            "situation" : "task"
-        },
-        {
-            "task": "taskname2",
-            "description": "description2",
-            "priority": 2,
-            "situation" : "finished"
-        }
-    ]
+    const data = []
     
     return (
         <div className = 'w-full h-screen'>
