@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import FinishedTasksComponent from './finishedTasksComponent';
 import { TabView, TabPanel } from 'primereact/tabview';
 import DeletedTasksComponent from './deletedTasksComponent';
@@ -13,7 +13,6 @@ const HomeComponent = () => {
         window.location.href = '/'
     }
     const data = JSON.parse(window.localStorage.getItem(token)) || []
-    console.log(data)
     
     return (
         <div className = 'w-full h-screen'>

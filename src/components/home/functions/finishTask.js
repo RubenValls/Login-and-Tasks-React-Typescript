@@ -4,7 +4,7 @@ export function finishTask(selectedTask, props, taskMsg){
             task.situation = "finished"
             taskMsg.current.show([
                 {severity: 'success', summary: '', detail: 'Task finished correctly'}
-                ]);
+            ]);
         }
     })
     window.localStorage.setItem(props.token, JSON.stringify(props.data));

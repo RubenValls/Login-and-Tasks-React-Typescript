@@ -5,6 +5,7 @@ import { Button } from 'primereact/button';
 import { finishTask } from './functions/finishTask';
 import { deleteTask } from './functions/deleteTask';
 import { Messages } from 'primereact/messages';
+import ModifyTaskComponent from './modifyTaskComponent';
 
 const PendingTasksComponent = (props) => {
     const [tasks, setTasks] = useState([]);
@@ -42,6 +43,7 @@ const PendingTasksComponent = (props) => {
                 </div>
                 <Button label="Finish task" severity="success" icon="pi pi-check" size="sm" onClick={finish} className='mt-4 m-1' text raised/>
                 <Button label="Delete task" severity="danger" icon="pi pi-times" size="sm" onClick={deleted} className='mt-4 m-1' text raised/>
+                <ModifyTaskComponent tasks = {props.data} token = {props.token}/>
                 <Messages ref={taskMsg} className = "mt-2"/>
             </div>
         </div>
