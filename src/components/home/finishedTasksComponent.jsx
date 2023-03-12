@@ -8,7 +8,7 @@ const FinishedTasksComponent = (props) => {
     useEffect(() => {
         const filteredTasks = props.data.filter( task => task.situation === "finished");
         setFinishedTasks(filteredTasks);
-    }, []);
+    }, [props.data]);
     
     return (
         <div className = 'flex w-full h-auto justify-content-center align-content-center align-items-center'>
@@ -18,6 +18,7 @@ const FinishedTasksComponent = (props) => {
                         <Column field="task" header="Name" sortable style={{ width: '20%' }}></Column>
                         <Column field="description" header="Description" sortable style={{ width: '20%' }}></Column>
                         <Column field="priority" header="Priority" sortable style={{ width: '20%' }}></Column>
+                        <Column field="date" header="Date" sortable style={{ width: '20%' }}></Column>
                     </DataTable>
                 </div>
             </div>

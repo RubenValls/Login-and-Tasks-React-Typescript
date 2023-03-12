@@ -6,13 +6,13 @@ export function saveTask(name, description, priority, props, taskMsg){
             ]);
         }else{
             taskMsg.current.show([
-                {sticky: true, severity: 'success', summary: '', detail: `${name} created`}
+                {severity: 'success', summary: '', detail: `New task created`}
                 ]);
             const task = {
                 "task": name,
                 "description": description,
                 "priority": priority,
-                "situation" : "task"
+                "situation" : "task",
             }
             props.data.push(task);
         }

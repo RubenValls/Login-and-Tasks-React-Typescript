@@ -19,11 +19,15 @@ const PendingTasksComponent = (props) => {
     function finish(){
         taskMsg.current.clear()
         finishTask(selectedTask, props, taskMsg)
+        const filteredTasks = props.data.filter( task => task.situation === "task");
+        setTasks(filteredTasks);
     }
 
     function deleted(){
         taskMsg.current.clear()
         deleteTask(selectedTask, props, taskMsg)
+        const filteredTasks = props.data.filter( task => task.situation === "task");
+        setTasks(filteredTasks);
     }
 
     return (
