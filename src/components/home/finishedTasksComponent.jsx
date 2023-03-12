@@ -18,7 +18,6 @@ const FinishedTasksComponent = (props) => {
                         <Column field="task" header="Name" sortable style={{ width: '20%' }}></Column>
                         <Column field="description" header="Description" sortable style={{ width: '20%' }}></Column>
                         <Column field="priority" header="Priority" sortable style={{ width: '20%' }}></Column>
-                        <Column field="date" header="Date" sortable style={{ width: '20%' }}></Column>
                     </DataTable>
                 </div>
             </div>

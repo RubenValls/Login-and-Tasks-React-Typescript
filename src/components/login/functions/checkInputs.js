@@ -30,11 +30,10 @@ function axiosRequest(loginInfo, msg){
     axios.post(apiURL, loginInfo)
     .then(function (response) {
         if(response.status === 200){
-            console.log(response);
             msg.current.show([
                 {sticky: true, severity: 'success', summary: '', detail: 'Correct Log in', closable: false}
                 ]);
-            window.setTimeout(redirect, 800)
+            window.setTimeout(redirect, 1000)
         }
     })
     .catch(function (error) {
