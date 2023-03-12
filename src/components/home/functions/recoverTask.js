@@ -7,4 +7,5 @@ export function recoverTask(selectedTask, props, taskMsg){
                 ]);
         }
     })
+    window.localStorage.setItem(props.token, JSON.stringify(props.data));
 }
