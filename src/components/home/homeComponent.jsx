@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import FinishedTasksComponent from './finishedTasksComponent';
 import { TabView, TabPanel } from 'primereact/tabview';
 import DeletedTasksComponent from './deletedTasksComponent';
@@ -7,22 +7,28 @@ import CreateTasksComponent from './createTasksComponent';
 
 const HomeComponent = () => {
     
-    const data = []
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token')
+    if(!token){
+        window.location.href = '/'
+    }
+    const data = JSON.parse(window.localStorage.getItem(token)) || []
+    console.log(data)
     
     return (
         <div className = 'w-full h-screen'>
             <TabView>
                 <TabPanel header="Create a new task">
-                    <CreateTasksComponent data = {data}/>
+                    <CreateTasksComponent token = {token} data = {data}/>
                 </TabPanel>
                 <TabPanel header="Tasks">
-                    <PendingTasksComponent data = {data}/>
+                    <PendingTasksComponent token = {token} data = {data}/>
                 </TabPanel>
                 <TabPanel header="Finished tasks">
-                    <FinishedTasksComponent data = {data}/>
+                    <FinishedTasksComponent token = {token} data = {data}/>
                 </TabPanel>
                 <TabPanel header="Deleted tasks">
-                    <DeletedTasksComponent data = {data}/>
+                    <DeletedTasksComponent token = {token} data = {data}/>
                 </TabPanel>
             </TabView>
         </div>

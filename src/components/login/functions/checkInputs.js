@@ -33,7 +33,7 @@ function axiosRequest(loginInfo, msg){
             msg.current.show([
                 {sticky: true, severity: 'success', summary: '', detail: 'Correct Log in', closable: false}
                 ]);
-            window.setTimeout(redirect, 1000)
+            window.setTimeout(redirect(response.data.token), 1000)
         }
     })
     .catch(function (error) {
@@ -43,6 +43,6 @@ function axiosRequest(loginInfo, msg){
     });
 }
 
-function redirect(){
-    window.location.href = '/home'
+function redirect(token){
+    window.location.href = `/home?token=${token}`
 }

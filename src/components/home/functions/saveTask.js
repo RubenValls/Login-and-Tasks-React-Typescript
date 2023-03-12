@@ -15,6 +15,7 @@ export function saveTask(name, description, priority, props, taskMsg){
                 "situation" : "task",
             }
             props.data.push(task);
+            window.localStorage.setItem(props.token, JSON.stringify(props.data));
         }
     }else{
         taskMsg.current.show([
