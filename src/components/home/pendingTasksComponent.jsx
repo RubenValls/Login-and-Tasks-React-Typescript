@@ -2,6 +2,8 @@ import React, { useState, useEffect} from 'react';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
+import { finishTask } from './functions/finishTask';
+import { deleteTask } from './functions/deleteTask';
 
 const PendingTasksComponent = (props) => {
     const [tasks, setTasks] = useState([]);
@@ -10,6 +12,7 @@ const PendingTasksComponent = (props) => {
     useEffect(() => {
         const filteredTasks = props.data.filter( task => task.situation === "task");
         setTasks(filteredTasks);
+        console.log(selectedTask)
     }, [props.data, selectedTask]);
     
     return (
@@ -22,8 +25,8 @@ const PendingTasksComponent = (props) => {
                         <Column field="priority" header="Priority" sortable style={{ width: '20%' }}></Column>
                     </DataTable>
                 </div>
-                <Button label="Finish task" severity="success" icon="pi pi-check" size="sm" className='mt-2 m-1'/>
-                <Button label="Delete task" severity="danger" icon="pi pi-times" size="sm" className='mt-2 m-1'/>
+                <Button label="Finish task" severity="success" icon="pi pi-check" size="sm" onClick={() => finishTask(selectedTask, props)} className='mt-2 m-1'/>
+                <Button label="Delete task" severity="danger" icon="pi pi-times" size="sm" onClick={() => deleteTask(selectedTask, props)} className='mt-2 m-1'/>
             </div>
         </div>
     );
